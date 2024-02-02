@@ -49,7 +49,7 @@ done
 
 ######################### Config ###########################
 
-RELEASE_VERSION='2023.12'
+RELEASE_VERSION='2024.01'
 ProductName="profiler_data"
 
 # Uses the location of the .sh file 
@@ -73,7 +73,7 @@ fi
 Config1_FileName="libmdProfiler.so"
 Config1_ReleaseVersion=$RELEASE_VERSION
 Config1_OS="LINUX"
-Config1_Compiler="GCC41"
+Config1_Compiler="GCC48"
 Config1_Architecture="64BIT"
 Config1_Type="BINARY"
 

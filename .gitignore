@@ -15,6 +15,7 @@ testFile.prf
 *.user
 *.userosscache
 *.sln.docstates
+*.hash
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

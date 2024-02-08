@@ -582,18 +582,15 @@ namespace MelissaData {
 		}
 
 		public int SetLicenseString(string license) {
-			EncodedString u_license = new EncodedString(license);
-			return mdProfilerUnmanaged.mdProfilerSetLicenseString(i, u_license.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerSetLicenseString(i, (new Utf8String(license)).GetUtf8Ptr());
 		}
 
 		public void SetPathToProfilerDataFiles(string path) {
-			EncodedString u_path = new EncodedString(path);
-			mdProfilerUnmanaged.mdProfilerSetPathToProfilerDataFiles(i, u_path.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetPathToProfilerDataFiles(i, (new Utf8String(path)).GetUtf8Ptr());
 		}
 
 		public void SetFileName(string fileName) {
-			EncodedString u_fileName = new EncodedString(fileName);
-			mdProfilerUnmanaged.mdProfilerSetFileName(i, u_fileName.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetFileName(i, (new Utf8String(fileName)).GetUtf8Ptr());
 		}
 
 		public void SetAppendMode(AppendMode appendMode) {
@@ -601,39 +598,35 @@ namespace MelissaData {
 		}
 
 		public void SetUserName(string userName) {
-			EncodedString u_userName = new EncodedString(userName);
-			mdProfilerUnmanaged.mdProfilerSetUserName(i, u_userName.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetUserName(i, (new Utf8String(userName)).GetUtf8Ptr());
 		}
 
 		public string GetUserName() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetUserName(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetUserName(i));
 		}
 
 		public void SetTableName(string tableName) {
-			EncodedString u_tableName = new EncodedString(tableName);
-			mdProfilerUnmanaged.mdProfilerSetTableName(i, u_tableName.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetTableName(i, (new Utf8String(tableName)).GetUtf8Ptr());
 		}
 
 		public string GetTableName() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetTableName(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetTableName(i));
 		}
 
 		public void SetJobName(string jobName) {
-			EncodedString u_jobName = new EncodedString(jobName);
-			mdProfilerUnmanaged.mdProfilerSetJobName(i, u_jobName.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetJobName(i, (new Utf8String(jobName)).GetUtf8Ptr());
 		}
 
 		public string GetJobName() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetJobName(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetJobName(i));
 		}
 
 		public void SetJobDescription(string jobDescription) {
-			EncodedString u_jobDescription = new EncodedString(jobDescription);
-			mdProfilerUnmanaged.mdProfilerSetJobDescription(i, u_jobDescription.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetJobDescription(i, (new Utf8String(jobDescription)).GetUtf8Ptr());
 		}
 
 		public string GetJobDescription() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetJobDescription(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetJobDescription(i));
 		}
 
 		public void SetSortAnalysis(int sortAnalysis) {
@@ -657,106 +650,91 @@ namespace MelissaData {
 		}
 
 		public string GetInitializeErrorString() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetInitializeErrorString(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetInitializeErrorString(i));
 		}
 
 		public string GetBuildNumber() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetBuildNumber(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetBuildNumber(i));
 		}
 
 		public string GetDatabaseDate() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetDatabaseDate(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetDatabaseDate(i));
 		}
 
 		public string GetLicenseExpirationDate() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetLicenseExpirationDate(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetLicenseExpirationDate(i));
 		}
 
 		public string GetProfileStartDateTime() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetProfileStartDateTime(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetProfileStartDateTime(i));
 		}
 
 		public string GetProfileEndDateTime() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetProfileEndDateTime(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetProfileEndDateTime(i));
 		}
 
 		public string GetColumnTypeEnum() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTypeEnum(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTypeEnum(i));
 		}
 
 		public string GetColumnTypeDescription(ProfilerColumnType columnType) {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTypeDescription(i, (int)columnType));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTypeDescription(i, (int)columnType));
 		}
 
 		public ProfilerColumnType ParseColumnTypeDescription(string columnTypeStr) {
-			EncodedString u_columnTypeStr = new EncodedString(columnTypeStr);
-			return (ProfilerColumnType)mdProfilerUnmanaged.mdProfilerParseColumnTypeDescription(i, u_columnTypeStr.GetPtr());
+			return (ProfilerColumnType)mdProfilerUnmanaged.mdProfilerParseColumnTypeDescription(i, (new Utf8String(columnTypeStr)).GetUtf8Ptr());
 		}
 
 		public string GetDataTypeEnum() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetDataTypeEnum(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetDataTypeEnum(i));
 		}
 
 		public string GetDataTypeDescription(ProfilerDataType dataType) {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetDataTypeDescription(i, (int)dataType));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetDataTypeDescription(i, (int)dataType));
 		}
 
 		public ProfilerDataType ParseDataTypeDescription(string dataTypeStr) {
-			EncodedString u_dataTypeStr = new EncodedString(dataTypeStr);
-			return (ProfilerDataType)mdProfilerUnmanaged.mdProfilerParseDataTypeDescription(i, u_dataTypeStr.GetPtr());
+			return (ProfilerDataType)mdProfilerUnmanaged.mdProfilerParseDataTypeDescription(i, (new Utf8String(dataTypeStr)).GetUtf8Ptr());
 		}
 
 		public string GetResultCodeEnum() {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetResultCodeEnum(i));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetResultCodeEnum(i));
 		}
 
 		public string GetResultCodeDescription(string resultStr) {
-			EncodedString u_resultStr = new EncodedString(resultStr);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetResultCodeDescription(i, u_resultStr.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetResultCodeDescription(i, (new Utf8String(resultStr)).GetUtf8Ptr()));
 		}
 
 		public void AddColumn(string columnName, ProfilerColumnType columnType, ProfilerDataType dataType) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			mdProfilerUnmanaged.mdProfilerAddColumn(i, u_columnName.GetPtr(), (int)columnType, (int)dataType);
+			mdProfilerUnmanaged.mdProfilerAddColumn(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)columnType, (int)dataType);
 		}
 
 		public int SetColumnCustomPattern(string columnName, string regEx) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			EncodedString u_regEx = new EncodedString(regEx);
-			return mdProfilerUnmanaged.mdProfilerSetColumnCustomPattern(i, u_columnName.GetPtr(), u_regEx.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerSetColumnCustomPattern(i, (new Utf8String(columnName)).GetUtf8Ptr(), (new Utf8String(regEx)).GetUtf8Ptr());
 		}
 
 		public int SetColumnValueRange(string columnName, string fromStr, string toStr) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			EncodedString u_fromStr = new EncodedString(fromStr);
-			EncodedString u_toStr = new EncodedString(toStr);
-			return mdProfilerUnmanaged.mdProfilerSetColumnValueRange(i, u_columnName.GetPtr(), u_fromStr.GetPtr(), u_toStr.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerSetColumnValueRange(i, (new Utf8String(columnName)).GetUtf8Ptr(), (new Utf8String(fromStr)).GetUtf8Ptr(), (new Utf8String(toStr)).GetUtf8Ptr());
 		}
 
 		public int SetColumnDefaultValue(string columnName, string value) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			EncodedString u_value = new EncodedString(value);
-			return mdProfilerUnmanaged.mdProfilerSetColumnDefaultValue(i, u_columnName.GetPtr(), u_value.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerSetColumnDefaultValue(i, (new Utf8String(columnName)).GetUtf8Ptr(), (new Utf8String(value)).GetUtf8Ptr());
 		}
 
 		public void SetColumnSize(string columnName, int size) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			mdProfilerUnmanaged.mdProfilerSetColumnSize(i, u_columnName.GetPtr(), size);
+			mdProfilerUnmanaged.mdProfilerSetColumnSize(i, (new Utf8String(columnName)).GetUtf8Ptr(), size);
 		}
 
 		public void SetColumnPrecision(string columnName, int precision) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			mdProfilerUnmanaged.mdProfilerSetColumnPrecision(i, u_columnName.GetPtr(), precision);
+			mdProfilerUnmanaged.mdProfilerSetColumnPrecision(i, (new Utf8String(columnName)).GetUtf8Ptr(), precision);
 		}
 
 		public void SetColumnScale(string columnName, int scale) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			mdProfilerUnmanaged.mdProfilerSetColumnScale(i, u_columnName.GetPtr(), scale);
+			mdProfilerUnmanaged.mdProfilerSetColumnScale(i, (new Utf8String(columnName)).GetUtf8Ptr(), scale);
 		}
 
 		public void SetColumnIgnoreOnError(string columnName, int ignore) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			mdProfilerUnmanaged.mdProfilerSetColumnIgnoreOnError(i, u_columnName.GetPtr(), ignore);
+			mdProfilerUnmanaged.mdProfilerSetColumnIgnoreOnError(i, (new Utf8String(columnName)).GetUtf8Ptr(), ignore);
 		}
 
 		public void StartProfiling() {
@@ -764,19 +742,15 @@ namespace MelissaData {
 		}
 
 		public void SetColumn(string columnName, string content) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			EncodedString u_content = new EncodedString(content);
-			mdProfilerUnmanaged.mdProfilerSetColumn(i, u_columnName.GetPtr(), u_content.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetColumn(i, (new Utf8String(columnName)).GetUtf8Ptr(), (new Utf8String(content)).GetUtf8Ptr());
 		}
 
 		public void SetColumnNull(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			mdProfilerUnmanaged.mdProfilerSetColumnNull(i, u_columnName.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetColumnNull(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public string GetColumnValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public void AddRecord() {
@@ -784,28 +758,23 @@ namespace MelissaData {
 		}
 
 		public string GetResults(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetResults(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetResults(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public void SetTextQualifier(string qualifier) {
-			EncodedString u_qualifier = new EncodedString(qualifier);
-			mdProfilerUnmanaged.mdProfilerSetTextQualifier(i, u_qualifier.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetTextQualifier(i, (new Utf8String(qualifier)).GetUtf8Ptr());
 		}
 
 		public void SetColumnDelimiter(string delimiter) {
-			EncodedString u_delimiter = new EncodedString(delimiter);
-			mdProfilerUnmanaged.mdProfilerSetColumnDelimiter(i, u_delimiter.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetColumnDelimiter(i, (new Utf8String(delimiter)).GetUtf8Ptr());
 		}
 
 		public void SetRowDelimiter(string delimiter) {
-			EncodedString u_delimiter = new EncodedString(delimiter);
-			mdProfilerUnmanaged.mdProfilerSetRowDelimiter(i, u_delimiter.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetRowDelimiter(i, (new Utf8String(delimiter)).GetUtf8Ptr());
 		}
 
 		public string AddDelimitedRecord(string record) {
-			EncodedString u_record = new EncodedString(record);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerAddDelimitedRecord(i, u_record.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerAddDelimitedRecord(i, (new Utf8String(record)).GetUtf8Ptr()));
 		}
 
 		public void ProfileData() {
@@ -897,800 +866,646 @@ namespace MelissaData {
 		}
 
 		public string GetColumnName(int index) {
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnName(i, index));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnName(i, index));
 		}
 
 		public ProfilerColumnType GetColumnColumnType(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return (ProfilerColumnType)mdProfilerUnmanaged.mdProfilerGetColumnColumnType(i, u_columnName.GetPtr());
+			return (ProfilerColumnType)mdProfilerUnmanaged.mdProfilerGetColumnColumnType(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public ProfilerDataType GetColumnDataType(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return (ProfilerDataType)mdProfilerUnmanaged.mdProfilerGetColumnDataType(i, u_columnName.GetPtr());
+			return (ProfilerDataType)mdProfilerUnmanaged.mdProfilerGetColumnDataType(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnSize(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnSize(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnSize(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnPrecision(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnPrecision(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnPrecision(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnScale(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnScale(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnScale(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public string GetColumnValueRangeFrom(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnValueRangeFrom(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnValueRangeFrom(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnValueRangeTo(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnValueRangeTo(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnValueRangeTo(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnDefaultValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDefaultValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDefaultValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnCustomPatterns(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnCustomPatterns(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnCustomPatterns(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public ProfilerDataType GetColumnInferredDataType(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return (ProfilerDataType)mdProfilerUnmanaged.mdProfilerGetColumnInferredDataType(i, u_columnName.GetPtr());
+			return (ProfilerDataType)mdProfilerUnmanaged.mdProfilerGetColumnInferredDataType(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public ProfilerColumnType GetColumnInferredColumnType(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return (ProfilerColumnType)mdProfilerUnmanaged.mdProfilerGetColumnInferredColumnType(i, u_columnName.GetPtr());
+			return (ProfilerColumnType)mdProfilerUnmanaged.mdProfilerGetColumnInferredColumnType(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public Sortation GetColumnSortation(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return (Sortation)mdProfilerUnmanaged.mdProfilerGetColumnSortation(i, u_columnName.GetPtr());
+			return (Sortation)mdProfilerUnmanaged.mdProfilerGetColumnSortation(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnSortationPercent(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnSortationPercent(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnSortationPercent(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMostPopularCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMostPopularCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMostPopularCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnDistinctCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnDistinctCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnDistinctCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnUniqueCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnUniqueCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnUniqueCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnDefaultValueCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnDefaultValueCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnDefaultValueCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnBelowRangeCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnBelowRangeCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnBelowRangeCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnAboveRangeCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAboveRangeCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAboveRangeCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnAboveSizeCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAboveSizeCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAboveSizeCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnAbovePrecisionCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAbovePrecisionCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAbovePrecisionCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnAboveScaleCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAboveScaleCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAboveScaleCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnInvalidRegExCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnInvalidRegExCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnInvalidRegExCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnEmptyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnEmptyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnEmptyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnNullCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNullCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNullCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnInvalidDataCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnInvalidDataCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnInvalidDataCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnInvalidUTF8Count(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnInvalidUTF8Count(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnInvalidUTF8Count(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnNonPrintingCharCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNonPrintingCharCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNonPrintingCharCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnDiacriticCharCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnDiacriticCharCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnDiacriticCharCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnForeignCharCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnForeignCharCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnForeignCharCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnAlphaOnlyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAlphaOnlyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAlphaOnlyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnNumericOnlyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericOnlyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericOnlyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnAlphaNumericCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAlphaNumericCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAlphaNumericCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnUpperCaseOnlyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnUpperCaseOnlyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnUpperCaseOnlyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnLowerCaseOnlyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnLowerCaseOnlyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnLowerCaseOnlyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMixedCaseCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMixedCaseCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMixedCaseCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnSingleSpaceCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnSingleSpaceCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnSingleSpaceCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMultiSpaceCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMultiSpaceCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMultiSpaceCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnLeadingSpaceCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnLeadingSpaceCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnLeadingSpaceCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnTrailingSpaceCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnTrailingSpaceCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnTrailingSpaceCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMaxSpaces(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMaxSpaces(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMaxSpaces(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMinSpaces(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMinSpaces(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMinSpaces(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnTotalSpaces(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnTotalSpaces(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnTotalSpaces(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnTotalWordBreaks(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnTotalWordBreaks(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnTotalWordBreaks(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnAvgSpaces(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAvgSpaces(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAvgSpaces(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnDecorationCharCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnDecorationCharCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnDecorationCharCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnProfanityCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnProfanityCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnProfanityCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnInconsistentDataCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnInconsistentDataCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnInconsistentDataCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public string GetColumnStringMaxValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnStringMaxValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnStringMaxValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnStringMinValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnStringMinValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnStringMinValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnStringQ1Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnStringQ1Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnStringQ1Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnStringMedValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnStringMedValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnStringMedValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnStringQ3Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnStringQ3Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnStringQ3Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetColumnStringMaxLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStringMaxLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStringMaxLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStringMinLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStringMinLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStringMinLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnStringAvgLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStringAvgLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStringAvgLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStringQ1Length(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStringQ1Length(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStringQ1Length(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStringMedLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStringMedLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStringMedLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStringQ3Length(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStringQ3Length(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStringQ3Length(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public string GetColumnWordMaxValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnWordMaxValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnWordMaxValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnWordMinValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnWordMinValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnWordMinValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnWordQ1Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnWordQ1Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnWordQ1Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnWordMedValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnWordMedValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnWordMedValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnWordQ3Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnWordQ3Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnWordQ3Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetColumnWordMaxLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnWordMaxLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnWordMaxLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnWordMinLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnWordMinLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnWordMinLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnWordAvgLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnWordAvgLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnWordAvgLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnWordQ1Length(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnWordQ1Length(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnWordQ1Length(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnWordMedLength(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnWordMedLength(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnWordMedLength(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnWordQ3Length(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnWordQ3Length(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnWordQ3Length(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMaxWords(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMaxWords(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMaxWords(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnMinWords(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnMinWords(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnMinWords(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnAvgWords(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnAvgWords(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnAvgWords(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericMaxValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMaxValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMaxValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericMinValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMinValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMinValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericAvgValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericAvgValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericAvgValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericQ1Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ1Value(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ1Value(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericQ1IntValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ1IntValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ1IntValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericMedValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMedValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMedValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericMedIntValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMedIntValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericMedIntValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericQ3Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ3Value(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ3Value(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericQ3IntValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ3IntValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericQ3IntValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public double GetColumnNumericStdDevValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNumericStdDevValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNumericStdDevValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public string GetColumnDateMaxValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDateMaxValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDateMaxValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnDateMinValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDateMinValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDateMinValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnDateAvgValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDateAvgValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDateAvgValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnDateQ1Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDateQ1Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDateQ1Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnDateMedValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDateMedValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDateMedValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnDateQ3Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnDateQ3Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnDateQ3Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnTimeMaxValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTimeMaxValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTimeMaxValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnTimeMinValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTimeMinValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTimeMinValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnTimeAvgValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTimeAvgValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTimeAvgValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnTimeQ1Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTimeQ1Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTimeQ1Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnTimeMedValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTimeMedValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTimeMedValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetColumnTimeQ3Value(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetColumnTimeQ3Value(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetColumnTimeQ3Value(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetColumnDateNoCenturyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnDateNoCenturyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnDateNoCenturyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnNameInconsistentOrderCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNameInconsistentOrderCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNameInconsistentOrderCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnNameMultipleNameCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNameMultipleNameCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNameMultipleNameCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnNameSuspiciousNameCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnNameSuspiciousNameCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnNameSuspiciousNameCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStateCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStateCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStateCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnProvinceCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnProvinceCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnProvinceCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStateProvinceNonStandardCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStateProvinceNonStandardCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStateProvinceNonStandardCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStateProvinceInvalidCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStateProvinceInvalidCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStateProvinceInvalidCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnZipCodeCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnZipCodeCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnZipCodeCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnPlus4Count(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnPlus4Count(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnPlus4Count(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnZipCodeInvalidCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnZipCodeInvalidCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnZipCodeInvalidCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnPostalCodeCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnPostalCodeCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnPostalCodeCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnPostalCodeInvalidCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnPostalCodeInvalidCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnPostalCodeInvalidCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnZipCodePostalCodeInvalidCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnZipCodePostalCodeInvalidCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnZipCodePostalCodeInvalidCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnStateZipCodeMismatchCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnStateZipCodeMismatchCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnStateZipCodeMismatchCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnProvincePostalCodeMismatchCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnProvincePostalCodeMismatchCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnProvincePostalCodeMismatchCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnCountryNonStandardCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnCountryNonStandardCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnCountryNonStandardCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnCountryInvalidCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnCountryInvalidCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnCountryInvalidCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnEmailSyntaxCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnEmailSyntaxCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnEmailSyntaxCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnEmailMobileDomainCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnEmailMobileDomainCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnEmailMobileDomainCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnEmailMisspelledDomainCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnEmailMisspelledDomainCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnEmailMisspelledDomainCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnEmailSpamtrapDomainCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnEmailSpamtrapDomainCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnEmailSpamtrapDomainCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnEmailDisposableDomainCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnEmailDisposableDomainCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnEmailDisposableDomainCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetColumnPhoneInvalidCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetColumnPhoneInvalidCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetColumnPhoneInvalidCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartDataFrequency(string columnName, Order order) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartDataFrequency(i, u_columnName.GetPtr(), (int)order);
+			return mdProfilerUnmanaged.mdProfilerStartDataFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order);
 		}
 
 		public string GetDataFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetDataFrequencyValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetDataFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetDataFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetDataFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetDataFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextDataFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextDataFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextDataFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartLengthFrequency(string columnName, Order order) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartLengthFrequency(i, u_columnName.GetPtr(), (int)order);
+			return mdProfilerUnmanaged.mdProfilerStartLengthFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order);
 		}
 
 		public int GetLengthFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetLengthFrequencyValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetLengthFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetLengthFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetLengthFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetLengthFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextLengthFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextLengthFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextLengthFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartPatternFrequency(string columnName, Order order) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartPatternFrequency(i, u_columnName.GetPtr(), (int)order);
+			return mdProfilerUnmanaged.mdProfilerStartPatternFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order);
 		}
 
 		public string GetPatternFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetPatternFrequencyValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetPatternFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetPatternFrequencyRegEx(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetPatternFrequencyRegEx(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetPatternFrequencyRegEx(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetPatternFrequencyExample(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetPatternFrequencyExample(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetPatternFrequencyExample(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetPatternFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetPatternFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetPatternFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextPatternFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextPatternFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextPatternFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartDateFrequency(string columnName, Order order, DateSpan dateSpan) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartDateFrequency(i, u_columnName.GetPtr(), (int)order, (int)dateSpan);
+			return mdProfilerUnmanaged.mdProfilerStartDateFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order, (int)dateSpan);
 		}
 
 		public string GetDateFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetDateFrequencyValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetDateFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetDateFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetDateFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetDateFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextDateFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextDateFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextDateFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartSoundExFrequency(string columnName, Order order) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartSoundExFrequency(i, u_columnName.GetPtr(), (int)order);
+			return mdProfilerUnmanaged.mdProfilerStartSoundExFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order);
 		}
 
 		public string GetSoundExFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetSoundExFrequencyValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetSoundExFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public string GetSoundExFrequencyExample(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetSoundExFrequencyExample(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetSoundExFrequencyExample(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetSoundExFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetSoundExFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetSoundExFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextSoundExFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextSoundExFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextSoundExFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartWordFrequency(string columnName, Order order) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartWordFrequency(i, u_columnName.GetPtr(), (int)order);
+			return mdProfilerUnmanaged.mdProfilerStartWordFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order);
 		}
 
 		public string GetWordFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetWordFrequencyValue(i, u_columnName.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetWordFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr()));
 		}
 
 		public int GetWordFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetWordFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetWordFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextWordFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextWordFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextWordFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int StartWordLengthFrequency(string columnName, Order order) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerStartWordLengthFrequency(i, u_columnName.GetPtr(), (int)order);
+			return mdProfilerUnmanaged.mdProfilerStartWordLengthFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr(), (int)order);
 		}
 
 		public int GetWordLengthFrequencyValue(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetWordLengthFrequencyValue(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetWordLengthFrequencyValue(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetWordLengthFrequencyCount(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetWordLengthFrequencyCount(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetWordLengthFrequencyCount(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public int GetNextWordLengthFrequency(string columnName) {
-			EncodedString u_columnName = new EncodedString(columnName);
-			return mdProfilerUnmanaged.mdProfilerGetNextWordLengthFrequency(i, u_columnName.GetPtr());
+			return mdProfilerUnmanaged.mdProfilerGetNextWordLengthFrequency(i, (new Utf8String(columnName)).GetUtf8Ptr());
 		}
 
 		public void SetReserved(string key, string value) {
-			EncodedString u_key = new EncodedString(key);
-			EncodedString u_value = new EncodedString(value);
-			mdProfilerUnmanaged.mdProfilerSetReserved(i, u_key.GetPtr(), u_value.GetPtr());
+			mdProfilerUnmanaged.mdProfilerSetReserved(i, (new Utf8String(key)).GetUtf8Ptr(), (new Utf8String(value)).GetUtf8Ptr());
 		}
 
 		public string GetReserved(string key) {
-			EncodedString u_key = new EncodedString(key);
-			return EncodedString.GetEncodedString(mdProfilerUnmanaged.mdProfilerGetReserved(i, u_key.GetPtr()));
+			return Utf8String.GetUnicodeString(mdProfilerUnmanaged.mdProfilerGetReserved(i, (new Utf8String(key)).GetUtf8Ptr()));
 		}
 
-		private class EncodedString : IDisposable {
-			private IntPtr encodedString = IntPtr.Zero;
-			private static Encoding encoding = Encoding.UTF8;
+		private class Utf8String : IDisposable {
+			private IntPtr utf8String = IntPtr.Zero;
 
-			public EncodedString(string str) {
+			public Utf8String(string str) {
 				if (str == null)
 					str = "";
-				byte[] buffer = encoding.GetBytes(str);
+				byte[] buffer = Encoding.UTF8.GetBytes(str);
 				Array.Resize(ref buffer, buffer.Length + 1);
 				buffer[buffer.Length - 1] = 0;
-				encodedString = Marshal.AllocHGlobal(buffer.Length);
-				Marshal.Copy(buffer, 0, encodedString, buffer.Length);
+				utf8String = Marshal.AllocHGlobal(buffer.Length);
+				Marshal.Copy(buffer, 0, utf8String, buffer.Length);
 			}
 
-			~EncodedString() {
+			~Utf8String() {
 				Dispose();
 			}
 
 			public virtual void Dispose() {
 				lock (this) {
-					Marshal.FreeHGlobal(encodedString);
+					Marshal.FreeHGlobal(utf8String);
 					GC.SuppressFinalize(this);
 				}
 			}
 
-			public IntPtr GetPtr() {
-				return encodedString;
+			public IntPtr GetUtf8Ptr() {
+				return utf8String;
 			}
 
-			public static string GetEncodedString(IntPtr ptr) {
+			public static string GetUnicodeString(IntPtr ptr) {
 				if (ptr == IntPtr.Zero)
 					return "";
 				int len = 0;
@@ -1700,7 +1515,7 @@ namespace MelissaData {
 					return "";
 				byte[] buffer = new byte[len];
 				Marshal.Copy(ptr, buffer, 0, len);
-				return encoding.GetString(buffer);
+				return Encoding.UTF8.GetString(buffer);
 			}
 		}
 	}

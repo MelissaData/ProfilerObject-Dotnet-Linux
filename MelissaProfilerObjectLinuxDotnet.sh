@@ -11,6 +11,7 @@ NC='\033[0m' # No Color
 ######################### Parameters ##########################
 
 file=""
+dataPath=""
 license=""
 quiet="false"
 
@@ -19,16 +20,25 @@ while [ $# -gt 0 ] ; do
     --file) 
         file="$2"
 
-        if [ "$file" == "--license" ] || [ "$file" == "--quiet" ] || [ -z "$file" ];
+        if [ "$file" == "--dataPath" ] || [ "$file" == "--license" ] || [ "$file" == "--quiet" ] || [ -z "$file" ];
         then
             printf "${RED}Error: Missing an argument for parameter \'file\'.${NC}\n"  
+            exit 1
+        fi  
+        ;;
+    --dataPath) 
+        dataPath="$2"
+        
+        if [ "$dataPath" == "--license" ] || [ "$dataPath" == "--quiet" ] || [ "$dataPath" == "--file" ] || [ -z "$dataPath" ];
+        then
+            printf "${RED}Error: Missing an argument for parameter \'dataPath\'.${NC}\n"  
             exit 1
         fi  
         ;;
     --license) 
         license="$2"
 
-        if [ "$license" == "--file" ] || [ "$license" == "--quiet" ] || [ -z "$license" ];
+        if [ "$license" == "--file" ] || [ "$license" == "--dataPath" ] || [ "$license" == "--quiet" ] || [ -z "$license" ];
         then
             printf "${RED}Error: Missing an argument for parameter \'license\'.${NC}\n"  
             exit 1
@@ -36,12 +46,6 @@ while [ $# -gt 0 ] ; do
         ;;
     --quiet) 
         quiet="true" 
-        
-        if [ "$quiet" == "--file" ] || [ "$quiet" == "--license" ] || [ -z "$quiet" ];
-        then
-            printf "${RED}Error: problem setting \'quiet\'.${NC}\n"  
-            exit 1
-        fi    
         ;;
   esac
   shift
@@ -49,24 +53,34 @@ done
 
 ######################### Config ###########################
 
-RELEASE_VERSION='2024.01'
+RELEASE_VERSION='2024.Q2'
 ProductName="profiler_data"
 
 # Uses the location of the .sh file 
-# Modify this if you want to use 
 CurrentPath=$(pwd)
 ProjectPath="$CurrentPath/MelissaProfilerObjectLinuxDotnet"
-BuildPath="$ProjectPath/Build"
-DataPath="$ProjectPath/Data"
 
-if [ ! -d $DataPath ];
+BuildPath="$ProjectPath/Build"
+if [ ! -d "$BuildPath" ];
 then
-    mkdir $DataPath
+    mkdir "$BuildPath"
 fi
 
-if [ ! -d $BuildPath ];
+if [ -z "$dataPath" ];
 then
-    mkdir $BuildPath
+    DataPath="$ProjectPath/Data"
+else
+    DataPath=$dataPath
+fi
+
+if [ ! -d "$DataPath" ] && [ "$DataPath" == "$ProjectPath/Data" ];
+then
+    mkdir "$DataPath"
+elif [ ! -d "$DataPath" ] && [ "$DataPath" != "$ProjectPath/Data" ];
+then
+    printf "\nData file path does not exist. Please check that your file path is correct.\n"
+    printf "\nAborting program, see above.\n"
+    exit 1
 fi
 
 # Config variables for download file(s)
@@ -187,18 +201,25 @@ then
   exit 1
 fi
 
+# Get data file path (either from parameters or user input)
+if [ "$DataPath" = "$ProjectPath/Data" ]; then
+    printf "Please enter your data files path directory if you have already downloaded the release zip.\nOtherwise, the data files will be downloaded using the Melissa Updater (Enter to skip): "
+    read dataPathInput
+
+    if [ ! -z "$dataPathInput" ]; then  
+        if [ ! -d "$dataPathInput" ]; then  
+            printf "\nData file path does not exist. Please check that your file path is correct.\n"
+            printf "\nAborting program, see above.\n"
+            exit 1
+        else
+            DataPath=$dataPathInput
+        fi
+    fi
+fi
+
 # Use Melissa Updater to download data file(s) 
 # Download data file(s) 
-DownloadDataFiles $license      # comment out this line if using DQS Release
-
-# Set data file(s) path
-#DataPath=""      # uncomment this line and change to your DQS Release data file(s) directory 
-
-#if [ ! -d $DataPath ]; # uncomment this section of code if you are using your own DQS Release data file(s) directory
-#then
-    #printf "\nData path is invalid!\n"
-    #exit 1
-#fi
+DownloadDataFiles $license # Comment out this line if using own release
 
 # Download SO(s)
 DownloadSO $license 

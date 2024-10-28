@@ -34,7 +34,7 @@ And return
 
 ## Tested Environments
 - Linux 64-bit .NET 8.0, Ubuntu 20.04.05 LTS
-- Melissa data files for 2024-Q3
+- Melissa data files for 2024-Q4
 
 ## Required File(s) and Programs
 #### Binaries
@@ -82,8 +82,8 @@ Once all of this is done, you should be able to verify that the SDK is installed
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/ProfilerObject-Dotnet-Linux
-$ cd ProfilerObject-Dotnet-Linux
+git clone https://github.com/MelissaData/ProfilerObject-Dotnet-Linux
+cd ProfilerObject-Dotnet-Linux
 ```
 
 #### Set up Melissa Updater 
@@ -140,11 +140,11 @@ Parameters:
     
   The script will prompt the user for a csv file, then use the provided csv file to test Profiler Object. For example:
     ```
-    $ ./MelissaProfilerObjectLinuxDotnet.sh
+    ./MelissaProfilerObjectLinuxDotnet.sh
     ```
     For quiet mode:
     ```
-    $ ./MelissaProfilerObjectLinuxDotnet.sh --quiet
+    ./MelissaProfilerObjectLinuxDotnet.sh --quiet
     ```
 
 - Command Line
@@ -153,13 +153,13 @@ Parameters:
 
     With all parameters:
     ```
-    $ ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv"
-    $ ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv" --license "<your_license_string>"
+    ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv"
+    ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv" --license "<your_license_string>"
     ```
     For quiet mode:
     ```
-    $ ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv" --quiet
-    $ ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv" --license "<your_license_string>" --quiet
+    ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv" --quiet
+    ./MelissaProfilerObjectLinuxDotnet.sh --file "MelissaProfilerObjectSampleInput.csv" --license "<your_license_string>" --quiet
     ```
 This is the expected outcome of a successful setup for interactive mode:
 

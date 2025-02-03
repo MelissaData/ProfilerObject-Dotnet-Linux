@@ -53,7 +53,7 @@ done
 
 ######################### Config ###########################
 
-RELEASE_VERSION='2024.Q4'
+RELEASE_VERSION='2025.Q1'
 ProductName="profiler_data"
 
 # Uses the location of the .sh file 

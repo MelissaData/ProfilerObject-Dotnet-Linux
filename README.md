@@ -34,7 +34,7 @@ And return
 
 ## Tested Environments
 - Linux 64-bit .NET 8.0, Ubuntu 20.04.05 LTS
-- Melissa data files for 2025-Q1
+- Melissa data files for 2025-Q2
 
 ## Required File(s) and Programs
 #### Binaries
@@ -50,16 +50,14 @@ This is the c++ code of the Melissa Object.
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-#### Install the Dotnet Core SDK
-Before starting, check to see if you already have the .NET 8.0 SDK already installed by entering this command:
+#### Install .NET SDK
+Before starting, check to see if you already have .NET SDK already installed by entering this command:
 
 `dotnet --list-sdks`
 
-If the .NET 8.0 SDK is already installed, you should see it in the following list:
+If .NET SDK is already installed, you should see it in the following list:
 
 ![alt text](/screenshots/dotnet_output.png)
-
-As long as the above list contains version `8.0.xxx` (underlined in red), then you can skip to the next step. If your list does not contain version 8.0, or you get any kind of error message, then you will need to download and install the .NET 8.0 SDK.
 
 To download, run the following commands to add the Microsoft package signing key to your list of trusted keys and add the package repository.
 
@@ -69,11 +67,11 @@ sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 ```
 
-Next, you can now run this command to install the .NET 8.0 SDK:
+Next, you can now run this command to install your desired .NET SDK (replace <VERSION> with .NET version: 8.0, 9.0, etc.):
 
 ```
 sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-8.0
+  sudo apt-get install -y dotnet-sdk-<VERSION>
 ```
 
 Once all of this is done, you should be able to verify that the SDK is installed with the `dotnet --list-sdks` command.

@@ -3,10 +3,10 @@ stages:
   
 buildJob:
   stage: build
-  image: mcr.microsoft.com/dotnet/sdk:8.0
+  image: mcr.microsoft.com/dotnet/sdk:10.0
   
   script:
-    - dotnet publish -f="net8.0" -c Release -o Artifacts MelissaProfilerObjectLinuxDotnet/MelissaProfilerObjectLinuxDotnet.csproj
+    - dotnet publish -f="net10.0" -c Release -o Artifacts MelissaProfilerObjectLinuxDotnet/MelissaProfilerObjectLinuxDotnet.csproj
 
   artifacts:
     paths:

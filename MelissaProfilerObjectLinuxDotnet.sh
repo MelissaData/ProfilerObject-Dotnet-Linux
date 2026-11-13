@@ -83,7 +83,7 @@ done
 ######################### Config ###########################
 
 # Product release the updater pulls files for
-RELEASE_VERSION='2026.Q3'
+RELEASE_VERSION='2026.Q4'
 ProductName="profiler_data"
 
 # Uses the location of the .sh file 
